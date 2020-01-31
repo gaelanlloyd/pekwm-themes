@@ -61,7 +61,7 @@ Define = "BaseDecor" {
 
 Define = "BaseButtons" {
   Buttons {
-    Left = "Close" {
+    Right = "Close" {
       Focused = "Image button-close.png"
       Unfocused = "Image button-close_unfocus.png"
       Hoover = "Image button-close_hover.png"
@@ -69,19 +69,19 @@ Define = "BaseButtons" {
       Button = "1" { Actions = "Close" }
       Button = "3" { Actions = "Kill" }
     }
-    Left = "Iconify" {
-      Focused = "Image button-min.png"
-      Unfocused = "Image button-min_unfocus.png"
-      Hoover = "Image button-min_hover.png"
-      Pressed = "Image button-min_press.png"
-      Button = "1" { Actions = "Set Iconified" }
-    }
-    Left = "Maximize" {
+    Right = "Maximize" {
       Focused = "Image button-max.png"
       Unfocused = "Image button-max_unfocus.png"
       Hoover = "Image button-max_hover.png"
       Pressed = "Image button-max_press.png"
       Button = "1" { Actions = "Toggle Maximized 1 1" }
+    }
+    Right = "Iconify" {
+      Focused = "Image button-min.png"
+      Unfocused = "Image button-min_unfocus.png"
+      Hoover = "Image button-min_hover.png"
+      Pressed = "Image button-min_press.png"
+      Button = "1" { Actions = "Set Iconified" }
     }
   }
 }
@@ -111,7 +111,7 @@ Define = "EmptyDecor" {
     FocusedSelected = "Empty"
     Unfocused = "Empty"
     UnfocusedSelected = "Empty"
-  }    
+  }
 
   Border {
     Focused {
@@ -175,13 +175,13 @@ Harbour {
 }
 
 Menu {
-  Pad = "0 0 4 4" 
+  Pad = "0 0 4 4"
 
   Focused {
     Font = "$FONT"
     Background = "Solid #eee9e4"
     Item = "Empty"
-    Text = "#4c4c4c" 
+    Text = "#4c4c4c"
     Separator = "Image menuline.png#Scaled"
     Arrow = "Image arrow.png"
   }
