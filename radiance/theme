@@ -1,0 +1,227 @@
+# Radiance look-alike
+
+$FONT = "XFT#Ubuntu:size=11#Left"
+$FONT_TITLE = "XFT#Ubunto:size=11:weight=bold#Center#1 1"
+
+Require {
+  Templates = "True"
+}
+
+Define = "BaseDecor" {
+  Height = "27"
+
+  # Increase first number to bring title text downwards
+  Pad = "4 5 5 0"
+
+  Focused = "Image title.png"
+  Unfocused = "Image title_unfocus.png"
+
+  Tab {
+    Focused = "Image title.png"
+    FocusedSelected = "Image title.png"
+    Unfocused = "Image title_unfocus.png"
+    UnfocusedSelected = "Image title_unfocus.png"
+  }
+  Separator {
+    Focused = "Image tab-separator.png"
+    Unfocused = "Image tab-separator_unfocus.png"
+  }
+  Font {
+    Focused = "$FONT_TITLE"
+  }
+  FontColor {
+    Focused = "#c2beb7 #000000:50"
+    FocusedSelected = "#dfdbd2 #000000:50"
+    Unfocused = "#777777"
+    UnfocusedSelected = "#777777"
+  }
+  Border {
+    Focused {
+      TopLeft = "Image top-left.png"
+      Top = "Image top-border.png"
+      TopRight = "Image top-right.png"
+      Left =  "Image left-border.png"
+      Right = "Image right-border.png"
+      BottomLeft = "Image bottom-left.png"
+      Bottom = "Image bottom-border.png"
+      BottomRight = "Image bottom-right.png"
+    }
+    Unfocused {
+      TopLeft = "Image top-left_unfocus.png"
+      Top = "Image top-border_unfocus.png"
+      TopRight = "Image top-right_unfocus.png"
+      Left =  "Image left-border_unfocus.png"
+      Right = "Image right-border_unfocus.png"
+      BottomLeft = "Image bottom-left_unfocus.png"
+      Bottom = "Image bottom-border_unfocus.png"
+      BottomRight = "Image bottom-right_unfocus.png"
+    }
+  }
+}
+
+Define = "BaseButtons" {
+  Buttons {
+    Left = "Close" {
+      Focused = "Image button-close.png"
+      Unfocused = "Image button-close_unfocus.png"
+      Hoover = "Image button-close_hover.png"
+      Pressed = "Image button-close_press.png"
+      Button = "1" { Actions = "Close" }
+      Button = "3" { Actions = "Kill" }
+    }
+    Left = "Iconify" {
+      Focused = "Image button-min.png"
+      Unfocused = "Image button-min_unfocus.png"
+      Hoover = "Image button-min_hover.png"
+      Pressed = "Image button-min_press.png"
+      Button = "1" { Actions = "Set Iconified" }
+    }
+    Left = "Maximize" {
+      Focused = "Image button-max.png"
+      Unfocused = "Image button-max_unfocus.png"
+      Hoover = "Image button-max_hover.png"
+      Pressed = "Image button-max_press.png"
+      Button = "1" { Actions = "Toggle Maximized 1 1" }
+    }
+  }
+}
+
+Define = "EmptyDecor" {
+  Focused = "Empty"
+  Unfocused = "Empty"
+
+  Tab {
+    Focused = "Empty"
+    FocusedSelected = "Empty"
+    Unfocused = "Empty"
+    UnfocusedSelected = "Empty"
+  }
+
+  Separator {
+    Focused = "Empty"
+    Unfocused = "Empty"
+  }
+
+  Font {
+    Focused = "Empty"
+  }
+
+  FontColor {
+    Focused = "Empty"
+    FocusedSelected = "Empty"
+    Unfocused = "Empty"
+    UnfocusedSelected = "Empty"
+  }    
+
+  Border {
+    Focused {
+      TopLeft = "Image bottom-left.png"
+      Top = "Image bottom-border.png"
+      TopRight = "Image bottom-right.png"
+      Left =  "Image left-border.png"
+      Right = "Image right-border.png"
+      BottomLeft = "Image bottom-left.png"
+      Bottom = "Image bottom-border.png"
+      BottomRight = "Image bottom-right.png"
+    }
+    Unfocused {
+      TopLeft = "Image bottom-left_unfocus.png"
+      Top = "Image bottom-border_unfocus.png"
+      TopRight = "Image bottom-right_unfocus.png"
+      Left =  "Image left-border_unfocus.png"
+      Right = "Image right-border_unfocus.png"
+      BottomLeft = "Image bottom-left_unfocus.png"
+      Bottom = "Image bottom-border_unfocus.png"
+      BottomRight = "Image bottom-right_unfocus.png"
+    }
+  }
+}
+
+PDecor {
+  Decor = "Default" {
+    Title {
+      @BaseDecor
+      @BaseButtons
+    }
+  }
+
+  Decor = "Menu" {
+    Title {
+      @BaseDecor
+    }
+  }
+
+  Decor = "Titlebarless" {
+    Title {
+      @EmptyDecor
+    }
+  }
+
+  Decor = "WorkspaceIndicator" {
+    Title {
+      @EmptyDecor
+    }
+  }
+
+  Decor = "Statuswindow" {
+    Title {
+      @EmptyDecor
+    }
+  }
+}
+
+Harbour {
+  Texture = "Solid #f9f9f9"
+}
+
+Menu {
+  Pad = "0 0 4 4" 
+
+  Focused {
+    Font = "$FONT"
+    Background = "Solid #eee9e4"
+    Item = "Empty"
+    Text = "#4c4c4c" 
+    Separator = "Image menuline.png#Scaled"
+    Arrow = "Image arrow.png"
+  }
+  Unfocused {
+    Font = "$FONT"
+    Background = "Solid #eee9e4"
+    Item = "Empty"
+    Text = "#4c4c4c"
+    Separator = "Image menuline.png#Scaled"
+    Arrow = "Image arrow.png"
+  }
+  Selected {
+    Font = "$FONT"
+    Background = "Solid #ee7443"
+    Item = "Image menu_hover.png"
+    Text = "#ffffff"
+    Arrow = "Image arrow_hover.png"
+  }
+}
+
+CmdDialog {
+  Font = "$FONT"
+  Texture = "Solid #ffffff"
+  Text = "#000000"
+  Pad = "3 0 1 10"
+}
+
+Status {
+  Font = "$FONT"
+  Texture = "Solid #ffffff"
+  Text = "#8b8b89"
+  Pad = "2 2 10 10"
+}
+
+WorkspaceIndicator {
+  Font = "$FONT_TITLE"
+  Text = "#8b8b89"
+  Background = "Solid #cccccc"
+  Workspace = "Solid #ffffff"
+  WorkspaceInactive = "Solid #eeeeee"
+  EdgePadding = "2 2 2 2"
+  WorkspacePadding = "2 2 2 2"
+}
